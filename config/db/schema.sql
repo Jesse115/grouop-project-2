@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS diary_db;
+CREATE DATABASE diary_db;
