@@ -1,5 +1,6 @@
 const Quotes = require("randomquote-api");
 const router = require("express").Router();
+const { User } = require("../../models");
 
 router.get("/", (req, res) => {
   try {
@@ -11,14 +12,23 @@ router.get("/", (req, res) => {
     res.status(500).json(err);
   }
 });
-router.post("/",async(req,res)=>{
-  const {username,email,password}=req.body;
-  if(!username,!email,!password){
-    return res.status(400).json({message:"You did not give all info!"});
-  }else{
-    res.json({message:"you did it "});
+router.post("/", async (req, res) => {
+  const { username, email, password } = req.body;
+  if ((!username, !email, !password)) {
+    return res.status(400).json({ message: "You did not give all info!" });
   }
-  console.log("You are the user route");
+  try {
+    const newUser =await User.create({
+      username,
+      email,
+      password,
+    });
+    res.status(201).json(newUser);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: "Somehting wrong" });
+  }
+
   res.end();
 });
 
