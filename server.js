@@ -1,11 +1,16 @@
 const express = require("express");
+const session = require('express-session');
+const exphbs = require('express-jandlebars');
+const hbs = exphbs.create({}); 
+
 const app = express();
 const PORT = process.env.PORT || 3001;
-const sequelize = require("./config/connection");
+const { sequelize, sessionConfig } = require("./config/connection");
 const controllers = require ("./controllers");
 const { User, Quote } = require ("./models");
 const randomquotes = require("./controllers/api/quotesRoutes");
 
+app.use(session(sessionConfig));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
