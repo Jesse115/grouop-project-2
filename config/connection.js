@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 const session = require("express-session");
-const SequilizeStore = require("connect-session-sequilize")(session.Store);
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 require("dotenv").config();
 
 let sequelize;
@@ -20,19 +20,18 @@ if (process.env.JAWSDB_URL) {
   );
 }
 //Establishing Cookies
-
-const sessionConfig = {
+const SessionConfig = {
   secret: process.env.SECRET,
   cookie: {
     maxAge: 1 * 60 * 1000, //one hour
     httpOnly: true,
     secure: false,
     sameSite: "strict",
- },
- resave: false,
- saveUnitialized: true,
- store: new SequilizeStore({
-  db: SequilizeStore,
- })
+  },
+  resave: false,
+  saveUnitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  })
 };
 module.exports = { sequelize, SessionConfig };

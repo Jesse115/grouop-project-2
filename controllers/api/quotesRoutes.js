@@ -38,7 +38,7 @@ router.post("/login", async (req, res) => {
     return res.status(400).json({ message: "You did not give all info!" });
   }
   try {
-    const user =await User.findOne({
+    const user = await User.findOne({
       where: {
         email,
       },
@@ -47,8 +47,8 @@ router.post("/login", async (req, res) => {
 
     if (isValidPassword) {
       return res.status(200).json(user);
-    }else {
-      res.status(404).json({message:"Some of your info is incorrect"});
+    } else {
+      res.status(404).json({ message: "Some of your info is incorrect" });
     }
     // res.status(200).json(user);
   } catch (error) {
