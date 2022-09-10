@@ -16,6 +16,6 @@ app.get("/", async (req, res) => {
 app.use(randomquotes);
 
 app.use(controllers);
-sequelize.sync({force:true}).then(()=>{
+sequelize.sync({force:false}).then(()=>{
   app.listen(PORT, () => console.log("we're doing it"));
 });
