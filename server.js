@@ -1,7 +1,7 @@
-const path = require('path');
+const path = require("path");
 const express = require("express");
-const session = require('express-session');
-const exphbs = require('express-handlebars');
+const session = require("express-session");
+const exphbs = require("express-handlebars");
 const hbs = exphbs.create({});
 
 const app = express();
@@ -14,13 +14,12 @@ const randomquotes = require("./controllers/api/quotesRoutes");
 app.use(session(SessionConfig));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
-app.use(express.static(path.join(__dirname, 'public')));
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", async (req, res) => {
-
-  res.render("homepage")
+  res.render("homepage");
 });
 
 app.use(randomquotes);

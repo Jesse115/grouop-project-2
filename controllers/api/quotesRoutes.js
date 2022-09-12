@@ -2,7 +2,7 @@ const Quotes = require("randomquote-api");
 const router = require("express").Router();
 const { User } = require("../../models");
 
-router.get("/", (req, res) => {
+router.get("/quotes", (req, res) => {
   try {
     const randomquote = Quotes.randomQuote();
     console.log(randomquote);
@@ -12,6 +12,14 @@ router.get("/", (req, res) => {
     res.status(500).json(err);
   }
 });
+router.get("/",async(req,res)=>{
+  if(req.session.loggedIn){
+    return res.json({message:"You are in"});
+  }else{
+    return res.json({message:"You are out"});
+  }
+});
+
 router.post("/", async (req, res) => {
   const { username, email, password } = req.body;
   if ((!username, !email, !password)) {
@@ -23,7 +31,11 @@ router.post("/", async (req, res) => {
       email,
       password,
     });
-    res.status(201).json(newUser);
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      req.session.userId = newUser.id;
+      return res.status(201).json(newUser);
+    });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ message: "Somehting wrong" });
@@ -46,7 +58,11 @@ router.post("/login", async (req, res) => {
     const isValidPassword = user.checkPassword(password);
 
     if (isValidPassword) {
-      return res.status(200).json(user);
+      req.session.save(() => {
+        req.session.loggedIn = true;
+        req.session.userId = user.id;
+        return res.status(200).json(user);
+      });
     } else {
       res.status(404).json({ message: "Some of your info is incorrect" });
     }
