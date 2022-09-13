@@ -1,20 +1,29 @@
-<h2>Today's Date is: {{format_time }}<span class="badge bg-secondary"></span></h2>
- <div class="container-fluid">
-      <div class="row">
-        <div class="col-4 list-container">
-          <div class="card">
-            <ul class="list-group"></ul>
-          </div>
+
+<body>
+
+    <nav class="navbar">
+        <a class="navbar-brand">Today's Date is: {{format_time }}</a>
+        <div class="icons">
+            <i class="fas fa-save text-light save-note"></i>
+            <i class="fas fa-plus text-light new-note"></i>
         </div>
-        <div class="col-8">
-          <input
-            class="note-title"
-            placeholder="Today is" 
-            maxlength="28"
-            type="text"
-            
-          />
-          <textarea class="note-textarea" placeholder="My Thoughts For Today"></textarea>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4 list-container">
+                <div class="card">
+                    <ul class="list-group"></ul>
+                </div>
+            </div>
+            <div class="col-8">
+                <input class="note-title" placeholder="Enter Your Title Here" maxlength="28" type="text" />
+                <textarea class="note-textarea" placeholder="Tell me about your day"></textarea>
+            </div>
         </div>
-      </div>
     </div>
+    <script src="/assets/js/index.js"></script>
+</body>
+
+</html>
+
+ 
