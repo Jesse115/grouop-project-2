@@ -1,11 +1,11 @@
 const { Model, DataTypes } = require("sequelize");
 const { sequelize } = require("../config/connection");
 
-class Quote extends Model { }
+class Diary extends Model { }
 
-Quote.init(
+Diary.init(
   {
-    quoteId: {
+    diaryId: {
       type: DataTypes.STRING,
     },
     title: {
@@ -19,4 +19,4 @@ Quote.init(
     sequelize,
   }
 );
-module.exports = Quote;
+module.exports = Diary;

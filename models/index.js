@@ -1,7 +1,7 @@
 const User = require ("./User");
-const Quote =require("./Diary");
+const Diary =require("./Diary");
 
-User.hasMany(Quote);
-Quote.belongsTo(User);
+User.hasMany(Diary);
+Diary.belongsTo(User);
 
-module.exports = {User, Quote };
+module.exports = {User, Diary };
