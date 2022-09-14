@@ -4,7 +4,7 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 const helpers = require("./utils/helpers");
 const hbs = exphbs.create({ helpers });
-
+const routes = require("./controllers");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -24,7 +24,7 @@ app.get("/", async (req, res) => {
   res.render("homepage");
 });
 
-app.use(randomquotes);
+app.use(routes);
 
 app.use(controllers);
 sequelize.sync({ force: false }).then(() => {
