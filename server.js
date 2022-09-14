@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const { sequelize, SessionConfig } = require("./config/connection");
 const controllers = require("./controllers");
-const { User, Quote } = require("./models");
+// const { User, Quote } = require("./models");
 const randomquotes = require("./controllers/api/quotesRoutes");
 
 app.use(session(SessionConfig));
