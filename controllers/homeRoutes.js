@@ -3,6 +3,10 @@ const router = require("express").homeRouter();
 const diarypages = require("diarypages.js");
 
 // requesting the existing notes
+//for quote pages MM
+router.get("/quotes", (req, res) => {
+  res.render("quotes");
+});
 
 router.get("/diarypages", (req, res) => {
   diarypages
