@@ -16,8 +16,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
         integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
         crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="/css/style.css" />
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />    <link rel="preconnect" href="https://fonts.gstatic.com">    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;700&display=swap">
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;700&display=swap">
     <title>Diary</title>
 </head>
 
@@ -26,7 +29,7 @@
 </body>
 <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
     {{!-- <div class="container-fluid"> --}}
-        <a class="navbar-brand" href="#">Diary</a>
+        <a class="navbar-brand" href="/diary">Diary</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -36,25 +39,25 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
-                
+
                 <li class="nav-item">
-                    
-                     
+
+
                     <a class="nav-link" href="#">Quotes To get Inspired</a>
-                    
+
                 </li>
-                   {{#if loggedIn}}
-                    <a class="nav-link" href="/logout"id="logout">Logout</a>
-                    <a class="nav-link" href="#">Past Diary Pages</a>
-                    {{else}}
+                {{#if loggedIn}}
+                <a class="nav-link" href="/logout" id="logout">Logout</a>
+                <a class="nav-link" href="#">Past Diary Pages</a>
+                {{else}}
 
-                    
-                    <a class="nav-link" href="/login">LoginSign-up</a>
-                    
-                    {{/if}}
-                
 
-   
+                <a class="nav-link" href="/login">LoginSign-up</a>
+
+                {{/if}}
+
+
+
 
             </ul>
         </div>
@@ -63,6 +66,7 @@
 
 {{{body}}}
 {{#if loggedIn}}
-<script src ="/js/logout.js"></script>
+<script src="../js/logout.js"></script>
 {{/if}}
+
 </html>
