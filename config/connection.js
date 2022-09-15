@@ -32,6 +32,6 @@ const SessionConfig = {
   saveUnitialized: true,
   store: new SequelizeStore({
     db: sequelize,
-  })
+  }),
 };
 module.exports = { sequelize, SessionConfig };
