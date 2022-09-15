@@ -100,3 +100,12 @@ h4 {
     padding: 20px;
     cursor: pointer;
 }
+#Login {
+    display: none;
+
+}
+#LoginButton {
+    text-align: left;
+    width: auto;
+
+}
