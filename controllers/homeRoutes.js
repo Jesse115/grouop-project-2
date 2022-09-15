@@ -1,6 +1,10 @@
 const router = require("express").homeRouter();
-
+const { withAuth } = require("../../utils");
 const diarypages = require("diarypages.js");
+
+router.get("/", withAuth, async (req, res) => {
+  res.render("homepage");
+});
 
 // requesting the existing notes
 //for quote pages MM
