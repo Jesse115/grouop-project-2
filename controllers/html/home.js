@@ -7,8 +7,9 @@ router.get("/", async (req, res) => {
   });
 });
 router.get("/login", async (req, res) => {
-  // const loggedIn = await req.session.loggedIn;
-  res.render("login"
-  );
+  const loggedIn = req.session.loggedIn;
+  res.render("login",{
+    loggedIn,
+  });
 });
 module.exports = router;

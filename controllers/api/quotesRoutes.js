@@ -12,11 +12,11 @@ router.get("/quotes", (req, res) => {
     res.status(500).json(err);
   }
 });
-router.get("/", async (req, res) => {
-  if (req.session.loggedIn) {
-    return res.json({ message: "You are in" });
-  } else {
-    return res.json({ message: "You are out" });
+router.get("/",async(req,res)=>{
+  if(req.session.loggedIn){
+    return res.json({message:"You are in"});
+  }else{
+    return res.json({message:"You are out"});
   }
 });
 
@@ -61,8 +61,6 @@ router.post("/login", async (req, res) => {
       req.session.save(() => {
         req.session.loggedIn = true;
         req.session.userId = user.id;
-        console.log(req.session.loggedIn);
-
         return res.status(200).json(user);
       });
     } else {
@@ -74,15 +72,10 @@ router.post("/login", async (req, res) => {
     return res.status(500).json({ message: "Something wrong" });
   }
 });
-router.post("/logout", async (req, res) => {
-  console.log(req.session.loggedIn);
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
+router.post("/logout",async(req,res)=>{
+  req.session.destroy(()=>{
+    res.status(204).end();
+  });
 });
 
 module.exports = router;
