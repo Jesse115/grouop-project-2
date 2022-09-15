@@ -72,5 +72,10 @@ router.post("/login", async (req, res) => {
     return res.status(500).json({ message: "Something wrong" });
   }
 });
+router.post("/logout",async(req,res)=>{
+  req.session.destroy(()=>{
+    res.status(204).end();
+  });
+});
 
 module.exports = router;
