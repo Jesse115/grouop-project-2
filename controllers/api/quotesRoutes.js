@@ -2,7 +2,7 @@ const Quotes = require("randomquote-api");
 const router = require("express").Router();
 const { User } = require("../../models");
 
-router.get("/quotes", (req, res) => {
+router.get("/random", (req, res) => {
   try {
     const randomquote = Quotes.randomQuote();
     console.log(randomquote);

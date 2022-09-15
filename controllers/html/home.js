@@ -12,4 +12,7 @@ router.get("/login", async (req, res) => {
     loggedIn,
   });
 });
+router.get("/quotes", (req, res) => {
+  res.render("quotes");
+});
 module.exports = router;
