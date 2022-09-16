@@ -27,14 +27,13 @@
 </head>
 
 <body>
-  
-    <div class="shadow p-3 mb-5 bg-white rounded">Get Your Daily Inspiration Here 
-    <span class="material-icons-outlined">
-favorite_border
-</span>
+  {{!-- Page statement --}}
+    <div class="shadow p-3 mb-5 bg-primary rounded text-white h5">Get Your Daily Inspiration Here 
+    <span class="material-icons-outlined">favorite_border</span>
     </div>
 
- 
+ {{!-- Box for the image carousel --}}
+
 <div class="container mx-0">
   <div class="row">
     <div class="col">
@@ -55,14 +54,18 @@ favorite_border
   </div>
 </div>
 
+{{!-- Box for the random quote --}}
     </div>
     <div class="col">
-        <h3 id="quoteshbs"></h3>
-<h4 id="author"></h4>
-      {{!-- <h1 class="display-4">tion.Every Day Is A Blessing. All You Need Is A Little Inspira</h1> --}}
-    </div>
+      <div class="container-fluid">
+        <h2>Here's a quote to reflect on...</h2>
+        <h3 class="h6" id="quoteshbs"></h3>  
+        <h4 id="author"></h4>
+      </div>
   </div>
   <div class="d-flex flex-column justify-content-center w-100 h-100"></div>
+</div>
+    
 
 <script src="/js/quotes.js"></script>
 </body>
