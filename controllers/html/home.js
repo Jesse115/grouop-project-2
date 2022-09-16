@@ -13,7 +13,10 @@ router.get("/login", async (req, res) => {
   });
 });
 router.get("/quotes", (req, res) => {
-  res.render("quotes");
+  const loggedIn = req.session.loggedIn;
+  res.render("quotes", {
+    loggedIn,
+  });
 });
 router.get("/diary", async (req, res) => {
   const loggedIn = req.session.loggedIn;
