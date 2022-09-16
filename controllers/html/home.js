@@ -18,16 +18,15 @@ router.get("/quotes", (req, res) => {
     loggedIn,
   });
 });
-router.get("/diary", async (req, res) => {
+
+//removed async from diary line put back if necessary
+router.get("/diary", (req, res) => {
   const loggedIn = req.session.loggedIn;
   if (loggedIn) {
     res.render("homepage", {
       loggedIn,
     });
   }
-  res.render("login", {
-    loggedIn,
-  });
 });
 
 
