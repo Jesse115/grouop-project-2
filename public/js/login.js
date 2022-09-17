@@ -1,55 +1,58 @@
-const loginFormHandler = async (event) => {
+
+
+async function loginFormHandler(event) {
   event.preventDefault();
 
-  const email = document.querySelector("#email-login").value.trim();
+  const email = document.querySelector("#username-login").value.trim();
   const password = document.querySelector("#password-login").value.trim();
 
   if (email && password) {
     const response = await fetch("/api/user/login", {
-      method: "POST",
-      body: JSON.stringify({ email, password }),
+      method: "post",
+      body: JSON.stringify({
+        email,
+        password,
+      }),
       headers: { "Content-Type": "application/json" },
     });
 
     if (response.ok) {
-      document.location.replace("/");
+      document.location.replace("/diary");
     } else {
-      alert("Failed to log in.");
+      alert(response.statusText);
     }
   }
-};
-const signupFormHandler = async (event) => {
+}
+
+document
+  .querySelector("#login-form")
+  .addEventListener("submit", loginFormHandler);
+async function signupFormHandler(event) {
   event.preventDefault();
 
   const username = document.querySelector("#username-signup").value.trim();
-  const email = document.querySelector("#email-signup").value.trim();
   const password = document.querySelector("#password-signup").value.trim();
-
+  const email = document.querySelector("#email-signup").value.trim();
   if (username && email && password) {
     const response = await fetch("/api/user/signup", {
       method: "POST",
-      body: JSON.stringify({ username, email, password }),
+      body: JSON.stringify({
+        username,
+        password,
+        email
+      }),
       headers: { "Content-Type": "application/json" },
     });
-
     if (response.ok) {
-      document.location.replace("/");
+      console.log("success");
+
+      document.location.replace("/diary");
     } else {
-      alert("Failed to sign up.");
+      alert(response.statusText);
     }
   }
-};
-const loginDiv = document.querySelector("#Login");
-const loginButton = document.querySelector("#LoginButton");
-loginButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  loginDiv.setAttribute("style", "display:block");
-});
+}
 
 document
-  .querySelector(".login-form")
-  .addEventListener("submit", loginFormHandler);
-
-document
-  .querySelector(".signup-form")
+  .querySelector("#signup-form")
   .addEventListener("submit", signupFormHandler);
