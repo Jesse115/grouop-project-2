@@ -9,12 +9,12 @@ class DiaryPages {
   read() {
     return readFileAsync("db/db.json", "utf8");
   }
-  write(note) {
-    return writeFileAsync("db/db.json", JSON.stringify(note));
+  write(diary) {
+    return writeFileAsync("db/db.json", JSON.stringify(diary));
   }
 
-  addNote(note) {
-    const { title, text } = note;
+  addDiary(diary) {
+    const { title, text } = dairy;
 
     if (!title || !text) {
       throw new Error("title and text cannot be blank");
@@ -22,22 +22,22 @@ class DiaryPages {
 
     const newNote = { title, text, id: uuid() };
 
-    return this.getNotes()
-      .then(notes => [...notes, newNote])
-      .then(updatedNotes => this.write(updatedNotes))
+    return this.getdiary()
+      .then(diary => [...diary, newNote])
+      .then(updateddiary => this.write(updateddiary))
       .then(() => this.newNote);
   }
 
-  getNotes() {
+  getdiary() {
     return this.read()
-      .then(notes => {
-        return JSON.parse(notes) || [];
+      .then(diary => {
+        return JSON.parse(diary) || [];
       });
   }
   removeNote(id) {
-    return this.getNotes()
-      .then(notes => notes.filter(note => note.id !== id))
-      .then(keptNotes => this.write(keptNotes));
+    return this.getdiary()
+      .then(diary => diary.filter(diary => diary.id !== id))
+      .then(keptdiary => this.write(keptdiary));
   }
 }
 
