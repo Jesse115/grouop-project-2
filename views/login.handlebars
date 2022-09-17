@@ -1,66 +1,59 @@
-{{!-- Link to the new library --}}
-<link rel="stylesheet" type="text/css" href="/css/jquery.fullPage.css" />
+<link rel="stylesheet" href="/css/jass.css" />
 
-{{!-- <script type="text/javascript" src="http://expansionscollective.com/testscripts/jquery.fullPage.js"></script>
-<script> $(document).ready(function() { $('#fullpage').fullpage(); });</script> --}}
 
-<link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
-<p id='head1' class='header'>Your Personal Diary</p>
-<p id='head2' class='header'>Get Inspired!</p>
-<p id='head3' class='header'>Just For you</p>
-<p id='head4' class='header'>Simple and Awesome</p>
-<p id='head5' class='header'>Welcome!</p>
-{{!-- <button></button> --}}
-  <div class='light x1'></div>
-  <div class='light x2'></div>
-  <div class='light x3'></div>
-  <div class='light x4'></div>
-  <div class='light x5'></div>
-  <div class='light x6'></div>
-  <div class='light x7'></div>
-  <div class='light x8'></div>
-  <div class='light x9'></div>
+<script type="text/javascript" src="http://expansionscollective.com/testscripts/jquery.fullPage.js"></script>
+<script> $(document).ready(function() { $('#fullpage').fullpage(); });</script><script type="text/javascript"></script>
 
-<div class="row justify-space-between-md">
-  <div class="login-card" id="Login">
-    <h2 class="page-title">Login</h2>
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="email-login">Email:</label>
-        <input class="form-input" type="text" id="email-login" />
-      </div>
-      <div class="form-group">
-        <label for="password-login">Password:</label>
-        <input class="form-input" type="password" id="password-login" />
-      </div>
-      <div class="form-group">
-        <button class="login-form btn btn-primary" type="submit">login</button>
-      </div>
-    </form>
-  </div>
-  <div class="login-card">
-    <h2>HELLO!</h2>
-    <h3>Please, Sign-Up or Log-In</h3>
-    <form class="form signup-form">
-      <div class="form-group">
-        <label for="username-signup">Username:</label>
-        <input class="form-input" type="text" id="username-signup" />
-      </div>
-      <div class="form-group">
-        <label for="email-signup">Email:</label>
-        <input class="form-input" type="text" id="email-signup" />
-      </div>
-      <div class="form-group">
-        <label for="password-signup">Password:</label>
-        <input class="form-input" type="password" id="password-signup" />
-      </div>
 
-      <div class="form-group">
-        <button class="signup-form btn btn-primary" type="submit">Sign-up</button>
+
+
+
+
+
+</br>
+</br>
+</br>
+<script type="text/javascript" src="http://expansionscollective.com/testscripts/jquery.fullPage.js"></script>
+<script> $(document).ready(function() { $('#fullpage').fullpage(); });</script>
+
+
+<body>
+    <div class="card">
+      <h3 class="card-header">Login</h3>
+      <form id="login-form" class="card-body">
+        <label class="form-label" for="username-login">Username</label>
+        <input  id="username-login" type="text" autofocus="true" class="form-input" />
+
+        <label class="form-label" for="password-login">Password</label>
+        <input id="password-login" type="password" autofocus="true" class="form-input" />
+
+        <div class="form-button-layout">
+        <button type="submit" class="btn"><i class="fas fa-sign-in-alt" style="padding-right:8px;"></i>Login</button>
+        {{!-- <button class="btn-outline"><a class="link-blue" href="/signup"><i class="fas fa-user-plus" style="padding-right: 8px;"></i>Sign up</a></button> --}}
+        </div>
+      </form>
+    </div>
+
+
+    <div class="card">
+      <h3 class="card-header">Sign Up</h3>
+      <form id="signup-form" class="card-body">
+        <label for="username-signup" class="form-label">Username</label>
+        <input id="username-signup" type="text" class="form-input" />
+
+
+        <label class="form-label" for="password-signup">Password</label>
+        <input  id="password-signup" type="password" class="form-input" />
+
+        <label class="form-label" for="email-signup">Email</label>
+        <input  id="email-signup" type="email" class="form-input" />
+
+        <div class="form-button-layout">
+        <button type="submit" class="btn">Sign up</button>
+        {{!-- <button class="btn-outline"><a class="link-blue" href="/login"><i class="fas fa-sign-in-alt" style="padding-right:8px;"></i>Log in</a></button> --}}
+      </form>
       </div>
-    </form>
-  </div>
-  <div id="LoginButton" class="btn btn-primary">Click here to Login</div>
-</div>
+    </div>
+    </body>
 
 <script src="/js/login.js"></script>
