@@ -13,15 +13,14 @@ saveDiaryBtn = document.querySelector("#save-diary");
 // newdiaryBtn = document.querySelector(".new-diary");
 diaryList = document.querySelectorAll(".list-container .list-group");
 // }
-diarycontainer = document.querySelector(".list-group")
+diarycontainer = document.querySelector(".list-group");
 // Show an element
 const show = (elem) => {
   elem.style.display = "inline";
 };
 
 // Hide an element
-const hide = (elem) => {
-};
+const hide = (elem) => {};
 
 // activediary is used to keep track of the diary in the textarea
 let activeDiary = {};
@@ -32,10 +31,12 @@ const getDiary = () => {
     headers: {
       "Content-Type": "application/json",
     },
-  }).then((response) => response.json().then((diarys) => {
-    console.log(diarys)
-    renderDiaryList(diarys)
-  }))
+  }).then((response) =>
+    response.json().then((diarys) => {
+      console.log(diarys);
+      renderDiaryList(diarys);
+    })
+  );
 };
 const saveDiary = (diary) => {
   fetch("/api/diary", {
@@ -74,32 +75,32 @@ const renderActiveDiary = () => {
   }
 };
 function createlist(title, text) {
-  const liEl = document.createElement('li');
-  liEl.classList.add('list-group-item');
+  const liEl = document.createElement("li");
+  liEl.classList.add("list-group-item");
 
-  const spanEl = document.createElement('span');
-  spanEl.classList.add('list-item-title');
+  const spanEl = document.createElement("span");
+  spanEl.classList.add("list-item-title");
   spanEl.innerText = title;
-  spanEl.addEventListener('click', handleNoteView);
+  spanEl.addEventListener("click", handleNoteView);
 
-  const spanEl2 = document.createElement('span');
-  spanEl.classList.add('list-item-title');
+  const spanEl2 = document.createElement("span");
+  spanEl.classList.add("list-item-title");
   spanEl.innerText = text;
-  spanEl.addEventListener('click', handleNoteView);
+  spanEl.addEventListener("click", handleNoteView);
   liEl.append(spanEl);
   liEl.append(spanEl2);
-  return liEl
+  return liEl;
 }
 
 function creatediaryentry(title, text) {
-  let diarycontainer = document.createElement("div")
-  let diarytitle = doucument.createElement("p")
-  let diarytext = doucument.createElement("p")
+  let diarycontainer = document.createElement("div");
+  let diarytitle = doucument.createElement("p");
+  let diarytext = doucument.createElement("p");
   diarytitle.textContent = title;
   diarytext.textContent = text;
-  diarycontainer.appendChild(diarytitle)
-  diarycontainer.appendChild(diarytext)
-  return diarycontainer
+  diarycontainer.appendChild(diarytitle);
+  diarycontainer.appendChild(diarytext);
+  return diarycontainer;
 }
 
 // Render the list of diary titles
@@ -115,8 +116,7 @@ const renderDiaryList = async (diary) => {
   }
 };
 // Gets diarys from the db and renders them to the sidebar
-const getAndRenderDiary = () => getDiary()
-
+const getAndRenderDiary = () => getDiary();
 
 const handleDiarySave = () => {
   const newDiary = {
@@ -124,7 +124,7 @@ const handleDiarySave = () => {
     text: diaryText.value,
   };
 
-  saveDiary(newDiary)
+  saveDiary(newDiary);
   // .then(() => {
   //   getAndRenderDiary();
   //   renderActiveDiary();
@@ -168,8 +168,6 @@ const handleRenderSaveBtn = () => {
     show(saveDiaryBtn);
   }
 };
-
-
 
 let diaryListItems = [];
 
@@ -216,11 +214,9 @@ if (window.location.pathname === "/diary") {
   diaryListItems.forEach((diary) => diaryList[0].append(diary));
 }
 
-
-
 if (window.location.pathname === "/diary") {
   saveDiaryBtn.addEventListener("click", handleDiarySave);
-  // newDiaryBtn.addEventListener("click", handleNewdiaryView);
+  newDiaryBtn.addEventListener("click", handleNewdiaryView);
   // diaryTitle.addEventListener("keyup", handleRenderSaveBtn);
   //diaryText.addEventListener("keyup", handleRenderSaveBtn);
-};
+}
